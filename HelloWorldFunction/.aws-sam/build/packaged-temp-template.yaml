@@ -1,0 +1,9 @@
+Resources:
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Timeout: 300
+      MemorySize: 128
+      Handler: helloworld.App
+      CodeUri: s3://mvahidalizadeh-lambda-packages/704f0d69ce8c9f290dc42820f520e6c8
+      Runtime: java11
