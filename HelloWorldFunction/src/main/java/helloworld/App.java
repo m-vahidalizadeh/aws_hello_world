@@ -12,10 +12,12 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Handler for requests to Lambda function.
  */
+@Slf4j
 public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
     public APIGatewayProxyResponseEvent handleRequest(final APIGatewayProxyRequestEvent input, final Context context) {
@@ -23,16 +25,26 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
         headers.put("Content-Type", "application/json");
         headers.put("X-Custom-Header", "application/json");
 
+        System.out.println("This is a new version of the function.");
+
+        log.trace("This is a TRACE message.");
+        log.debug("This is a DEBUG message.");
+        log.info("This is a INFO message.");
+        log.warn("This is a WARN message.");
+        log.error("This is a ERROR message.");
+
         APIGatewayProxyResponseEvent response = new APIGatewayProxyResponseEvent()
                 .withHeaders(headers);
         try {
+            log.info("before calling checkip");
             final String pageContents = this.getPageContents("https://checkip.amazonaws.com");
             String output = String.format("{ \"message\": \"hello world\", \"location\": \"%s\" }", pageContents);
-
+            log.info("after calling checkip");
             return response
                     .withStatusCode(200)
                     .withBody(output);
         } catch (IOException e) {
+            log.error("error while calling checkip", e);
             return response
                     .withBody("{}")
                     .withStatusCode(500);
