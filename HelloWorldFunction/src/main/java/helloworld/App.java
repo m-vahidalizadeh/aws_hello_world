@@ -12,6 +12,8 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
+import com.amazonaws.xray.AWSXRay;
+import com.amazonaws.xray.entities.Subsegment;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -37,7 +39,9 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
                 .withHeaders(headers);
         try {
             log.info("before calling checkip");
+            Subsegment subsegment= AWSXRay.beginSubsegment("#Calling external service.");
             final String pageContents = this.getPageContents("https://checkip.amazonaws.com");
+            AWSXRay.endSubsegment();
             String output = String.format("{ \"message\": \"hello world\", \"location\": \"%s\" }", pageContents);
             log.info("after calling checkip");
             return response

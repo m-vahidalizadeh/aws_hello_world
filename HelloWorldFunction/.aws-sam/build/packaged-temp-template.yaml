@@ -4,6 +4,6 @@ Resources:
     Properties:
       Timeout: 300
       MemorySize: 128
-      Handler: helloworld.App::handleRequest
-      CodeUri: s3://mvahidalizadeh-lambda-packages/e2e2c8692133538ae75adb8638f9ab15
+      Handler: helloworld.App
+      CodeUri: s3://mvahidalizadeh-lambda-packages/59dee4c24d17134bfd952f6338a047fc
       Runtime: java11

@@ -4,6 +4,6 @@ Resources:
     Properties:
       Timeout: 300
       MemorySize: 128
-      Handler: helloworld.App::handleRequest
+      Handler: helloworld.App
       CodeUri: Function
       Runtime: java11
