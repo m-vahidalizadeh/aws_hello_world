@@ -16,3 +16,7 @@ b
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+Q
+!HelloWorldFunction/HelloWorld.iml,1/d/1db80e8c1e1333a24e80d837bb88cac65a25ceef
+J
+HelloWorldFunction/pom.xml,9/d/9d970051d361264f6c667ac9807abace75c441ed
