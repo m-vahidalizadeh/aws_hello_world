@@ -4,6 +4,6 @@ Resources:
     Properties:
       Timeout: 300
       MemorySize: 128
-      Handler: helloworld.CustomInputs::handler
+      Handler: helloworld.PromotionHandler::handleRequest
       CodeUri: Function
       Runtime: java11

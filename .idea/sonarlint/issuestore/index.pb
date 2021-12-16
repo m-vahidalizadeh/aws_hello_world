@@ -18,5 +18,11 @@ b
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 Q
 !HelloWorldFunction/HelloWorld.iml,1/d/1db80e8c1e1333a24e80d837bb88cac65a25ceef
+h
+8HelloWorldFunction/src/test/java/helloworld/AppTest.java,c/5/c5079d5098a7cbdb41a8570ddf4b0dcec7a345c0
 J
 HelloWorldFunction/pom.xml,9/d/9d970051d361264f6c667ac9807abace75c441ed
+d
+4HelloWorldFunction/src/main/java/helloworld/App.java,5/f/5f9bcff78cbeec8947d058a5acac446f283aac28
+m
+=HelloWorldFunction/src/main/java/helloworld/CustomInputs.java,f/b/fb4621280267f3c958e4a26fae701a04fddd5f1d
